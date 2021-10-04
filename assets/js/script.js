@@ -94,10 +94,11 @@ $(function bookSearch() {
     event.preventDefault();
     // console.log("you've clicked");
 
-    let searchQuery = $("#search-input").val();
-    let baseUrl = bookUrl + searchQuery;
+    var searchQuery = $("#search-input").val();
+    var baseUrl = bookUrl + searchQuery;
 
-    // console.log(baseUrl);
+
+    console.log(baseUrl);
 
     if(searchQuery !== ""){
 
@@ -145,6 +146,7 @@ $(function bookSearch() {
             $("#search-list").html(noReslts);
             console.log(searchQuery);
           }
+          window.localStorage.getItem('searchQuery', JSON.stringify(searchQuery))
         },
         error: function() {
           console.log("error");
@@ -154,7 +156,7 @@ $(function bookSearch() {
       console.log("pls enter something");
     }
   });
-  
+  // localStorage.setItem(searchQuery);
 });
 
 
